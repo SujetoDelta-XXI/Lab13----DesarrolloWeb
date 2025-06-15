@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${titulo}">La ESCUELA</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Spring Boot</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" th:href="@{/cursos}">Cursos</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/profesores}">Profesores</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h1 class="text-secondary border-bottom mb-4" th:text="${titulo}"></h1>
+    <p><a th:href="@{/cursos/nuevo}" class="btn btn-success">Crear Curso</a></p>
+    <table class="table table-striped">
+        <thead class="bg-dark text-white">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="curso : ${lista}">
+            <td th:text="${curso.id}"></td>
+            <td th:text="${curso.nombre}"></td>
+            <td><a class="btn btn-primary" th:href="@{'/cursos/editar/' + ${curso.id}}">Editar</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/cursos/eliminar/' + ${curso.id}}" onclick="return confirm('¿Seguro?')">Eliminar</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

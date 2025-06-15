@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${titulo}">Profesores</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Spring Boot</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" th:href="@{/cursos}">Cursos</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/profesores}">Profesores</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h1 class="text-secondary border-bottom mb-4" th:text="${titulo}"></h1>
+    <p><a th:href="@{/profesores/nuevo}" class="btn btn-success">Crear Profesor</a></p>
+
+    <table class="table table-striped">
+        <thead class="bg-dark text-white">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cursos</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="profesor : ${lista}">
+            <td th:text="${profesor.id}"></td>
+            <td th:text="${profesor.nombre}"></td>
+            <td>
+                <ul>
+                    <li th:each="curso : ${profesor.cursos}" th:text="${curso.nombre}"></li>
+                </ul>
+            </td>
+            <td>
+                <a class="btn btn-primary" th:href="@{'/profesores/editar/' + ${profesor.id}}">Editar</a>
+            </td>
+            <td>
+                <a class="btn btn-danger" th:href="@{'/profesores/eliminar/' + ${profesor.id}}"
+                   onclick="return confirm('¿Seguro que deseas eliminar?')">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
