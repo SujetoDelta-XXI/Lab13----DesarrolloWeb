@@ -7,6 +7,7 @@ com\tecsup\demo\repository\CategoriaRepository.class
 com\tecsup\demo\controller\ProductoController.class
 com\tecsup\demo\repository\ProductoRepository.class
 com\tecsup\demo\model\Categoria.class
+com\tecsup\demo\controller\InicioController.class
 com\tecsup\demo\controller\CursoController.class
 com\tecsup\demo\repository\CursoRepository.class
 com\tecsup\demo\model\Profesor.class

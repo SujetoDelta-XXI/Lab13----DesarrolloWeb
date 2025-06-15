@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Escuela</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Spring Boot</a>
+</nav>
+
+<div class="container mt-5 text-center">
+    <h1 class="mb-4">Bienvenido a la Escuela</h1>
+    <p class="lead mb-4">Elige una opción para comenzar:</p>
+    <a th:href="@{/cursos}" class="btn btn-primary btn-lg mx-2">Ver Cursos</a>
+    <a th:href="@{/profesores}" class="btn btn-success btn-lg mx-2">Ver Profesores</a>
+</div>
+
+</body>
+</html>
