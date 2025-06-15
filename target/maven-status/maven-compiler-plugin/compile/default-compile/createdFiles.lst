@@ -1,0 +1,13 @@
+com\tecsup\demo\repository\ProfesorRepository.class
+com\tecsup\demo\controller\CategoriaController.class
+com\tecsup\demo\controller\ProfesorController.class
+com\tecsup\demo\model\Curso.class
+com\tecsup\demo\model\Producto.class
+com\tecsup\demo\repository\CategoriaRepository.class
+com\tecsup\demo\controller\ProductoController.class
+com\tecsup\demo\repository\ProductoRepository.class
+com\tecsup\demo\model\Categoria.class
+com\tecsup\demo\controller\CursoController.class
+com\tecsup\demo\repository\CursoRepository.class
+com\tecsup\demo\model\Profesor.class
+com\tecsup\demo\Lab13SpringApplication.class

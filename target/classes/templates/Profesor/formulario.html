@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}">Formulario Profesor</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Spring Boot</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" th:href="@{/cursos}">Cursos</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/profesores}">Profesores</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h1 th:text="${titulo}" class="text-secondary border-bottom mb-4"></h1>
+    <form th:action="@{/profesores/guardar}" th:object="${profesor}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div class="form-group">
+            <label>Nombre:</label>
+            <input type="text" th:field="*{nombre}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>Cursos:</label>
+            <select th:name="cursoIds" multiple class="form-control">
+                <option th:each="curso : ${cursos}"
+                        th:value="${curso.id}"
+                        th:text="${curso.nombre}"
+                        th:selected="${profesor.cursos.contains(curso)}">
+                </option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a th:href="@{/profesores}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+</body>
+</html>
